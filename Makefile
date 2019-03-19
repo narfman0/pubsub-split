@@ -26,11 +26,11 @@ run-test:
 
 release-test: clean
 	pipenv run python setup.py sdist bdist_wheel
-	pipenv run twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+	pipenv run twine upload --repository pypitest dist/*
 
 release-prod: clean
 	pipenv run python setup.py sdist bdist_wheel
-	pipenv run twine upload dist/*
+	pipenv run twine upload --repository pypi dist/*
 
 test: init-dev run-test
 t: run-test
